@@ -54,6 +54,9 @@ CREATE TABLE IF NOT EXISTS Goals (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+-- Copy over data from CSV
+\copy Foods FROM 'Food_Menu.csv' DELIMITER ',' CSV HEADER;
+
 INSERT INTO Users (username, email, password, age, gender, height, weight)
 VALUES 
 ('john_doe', 'john@example.com', 'encrypted_password', 30, 'Male', 175.5, 70.2),
