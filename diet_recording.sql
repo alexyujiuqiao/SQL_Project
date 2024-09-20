@@ -17,15 +17,11 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS Foods (
     food_id INT PRIMARY KEY AUTO_INCREMENT,
     food_name VARCHAR(100) NOT NULL,
-    serving_size VARCHAR(50),
     calories DECIMAL(6,2),
     protein DECIMAL(6,2),
     carbohydrates DECIMAL(6,2),
     fat DECIMAL(6,2),
-    fiber DECIMAL(6,2),
-    sugar DECIMAL(6,2),
-    sodium DECIMAL(6,2),
-    cholesterol DECIMAL(6,2)
+    mass DECIMAL(6,2)
 );
 
 -- Create the Meals table
@@ -64,14 +60,14 @@ VALUES
 ('jane_smith', 'jane@example.com', 'encrypted_password', 28, 'Female', 165.0, 60.0),
 ('alex_yu', 'alex@example.com', 'encrypted_password',20,'Male', 175.0, 65.0);
 
-INSERT INTO Foods (food_name, serving_size, calories, protein, carbohydrates, fat, fiber, sugar, sodium, cholesterol)
+INSERT INTO Foods (food_name, calories, protein, carbohydrates, fat, mass)
 VALUES 
-('Apple', '1 medium (182g)', 95, 0.5, 25, 0.3, 4.4, 19, 1.8, 0),
-('French Fries', '1 medium (117g)', 365, 4.0, 63, 12.0, 6.0, 0.0, 2.0, 0),
-('Chicken Breast', '100g', 165, 31, 0, 3.6, 0, 0, 74, 85),
-('Brown Rice', '1 cup (195g)', 216, 5.0, 45, 1.8, 3.5, 1.0, 10, 0),
-('Broccoli', '1 cup (91g)', 31, 2.5, 6, 0.3, 2.4, 1.5, 30, 0),
-('Almonds', '1 oz (28g)', 164, 6.0, 6, 14.0, 3.5, 1.2, 0, 0);
+('Apple', 95, 0.5, 25, 0.3, 100),
+('French Fries', 365, 4.0, 63, 12.0, 500),
+('Chicken Breast', 165, 31, 0, 3.6, 700),
+('Brown Rice', 216, 5.0, 45, 1.8, 400),
+('Broccoli', 31, 2.5, 6, 0.3, 300),
+('Almonds', 164, 6.0, 6, 14.0, 50);
 
 -- Meals for john_doe on 2023-10-15
 INSERT INTO Meals (user_id, meal_date, meal_type)
